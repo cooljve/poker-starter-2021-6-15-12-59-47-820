@@ -161,7 +161,6 @@ public class Poker {
 
     private int[] descendingSort(int[] handsNumbers) {
         Map<Integer, Integer> handsNumbersCountMap = getHandsNumberCountMap(handsNumbers);
-//        groupByHandsNumber(handsNumbers, handsNumbersCountMap);
         List<Map.Entry<Integer, Integer>> list = new ArrayList<Map.Entry<Integer, Integer>>();
         list.addAll(handsNumbersCountMap.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
@@ -182,10 +181,6 @@ public class Poker {
         return Arrays.stream(handsNumbers)
                 .boxed()
                 .collect(Collectors.groupingBy(number -> number, Collectors.reducing(0, number -> 1, Integer::sum)));
-    }
-
-    private void groupByHandsNumber(int[] handsNumbers, Map<Integer, Integer> map) {
-        Arrays.stream(handsNumbers).forEach(handsNumber -> map.put(handsNumber, map.getOrDefault(handsNumber, 1) + 1));
     }
 
     //先获得数组中每个元素出现的次数，然后再进行计算出现次数大于1的和出现次数等于1的
