@@ -5,13 +5,13 @@ import java.util.*;
 public class Poker {
     public String compareResult(String black, String white) {
         String winResult = "";
-        String blackCardType = getCardType(black);
-        String whiteCardType = getCardType(white);
+        String blackHandsCategory = getHandsCategory(black);
+        String whiteHandsCategory = getHandsCategory(white);
         String[] handsCategories = {"StraightFlush", "FourOfAKind", "FullHouse", "Flush", "Straight", "ThreeOfAKind", "TwoPair", "OnePair", "HighCard"};
         int[] blackCardNumbers = getCardNumbers(black);
         int[] whiteCardNumbers = getCardNumbers(white);
-        int blackTypeIndex = getCardTypeIndex(blackCardType);
-        int whiteTypeIndex = getCardTypeIndex(whiteCardType);
+        int blackTypeIndex = getCardTypeIndex(blackHandsCategory);
+        int whiteTypeIndex = getCardTypeIndex(whiteHandsCategory);
         int[] descendingBlackCardNumbers = descendingSort(blackCardNumbers);
         int[] descendingWhiteCardNumbers = descendingSort(whiteCardNumbers);
         int[] repeatBlackCardNumbers = getRepeatNumbers(blackCardNumbers);
@@ -255,7 +255,7 @@ public class Poker {
     }
 
     //判断是什么牌
-    private String getCardType(String str) {
+    private String getHandsCategory(String str) {
         String type = "";
         String[] strArray = str.split("");
         int[] number = getCardNumbers(str);
