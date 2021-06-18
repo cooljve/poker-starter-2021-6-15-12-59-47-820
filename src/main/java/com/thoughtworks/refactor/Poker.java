@@ -159,14 +159,8 @@ public class Poker {
     }
 
     private int[] descendingSort(int[] handsNumbers) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < handsNumbers.length; i++) {
-            if (map.get(handsNumbers[i]) != null) {
-                map.put(handsNumbers[i], map.get(handsNumbers[i]) + 1);
-            } else {
-                map.put(handsNumbers[i], 1);
-            }
-        }
+        Map<Integer, Integer> map = new HashMap<>();
+        Arrays.stream(handsNumbers).forEach(handsNumber -> map.put(handsNumber, map.getOrDefault(handsNumber, 1) + 1));
         List<Map.Entry<Integer, Integer>> list = new ArrayList<Map.Entry<Integer, Integer>>();
         list.addAll(map.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
