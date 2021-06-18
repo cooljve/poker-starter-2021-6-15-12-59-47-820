@@ -159,10 +159,17 @@ public class Poker {
     }
 
     private int[] descendingSort(int[] handsNumbers) {
-        Map<Integer, Integer> handsNumbersCountMap = new HashMap<>();
-        groupByHandsNumber(handsNumbers, handsNumbersCountMap);
+<<<<<<< Updated upstream
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < handsNumbers.length; i++) {
+            map.put(handsNumbers[i], map.getOrDefault(handsNumbers[i], 1) + 1);
+        }
+=======
+        Map<Integer, Integer> map = new HashMap<>();
+        Arrays.stream(handsNumbers).forEach(handsNumber -> map.put(handsNumber, map.getOrDefault(handsNumber, 1) + 1));
+>>>>>>> Stashed changes
         List<Map.Entry<Integer, Integer>> list = new ArrayList<Map.Entry<Integer, Integer>>();
-        list.addAll(handsNumbersCountMap.entrySet());
+        list.addAll(map.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
             public int compare(Map.Entry<Integer, Integer> arg0, Map.Entry<Integer, Integer> arg1) {
                 return arg1.getValue().compareTo(arg0.getValue());
@@ -175,10 +182,6 @@ public class Poker {
             i++;
         }
         return arrayresult;
-    }
-
-    private void groupByHandsNumber(int[] handsNumbers, Map<Integer, Integer> map) {
-        Arrays.stream(handsNumbers).forEach(handsNumber -> map.put(handsNumber, map.getOrDefault(handsNumber, 1) + 1));
     }
 
     //先获得数组中每个元素出现的次数，然后再进行计算出现次数大于1的和出现次数等于1的
