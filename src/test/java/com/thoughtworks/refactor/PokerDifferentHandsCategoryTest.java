@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PokerDifferentCardTypeTest {
+public class PokerDifferentHandsCategoryTest {
 
     private static final String STRAIGHT_FLUSH = "A2 K2 Q2 J2 T2";
     private static final String FOUR_OF_A_KIND = "91 92 93 94 53";
