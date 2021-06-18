@@ -3,13 +3,13 @@ package com.thoughtworks.refactor;
 import java.util.*;
 
 public class Poker {
-    public String compareResult(String black, String white) {
+    public String compareResult(String blackHands, String whiteHands) {
         String winResult = "";
-        String blackHandsCategory = getHandsCategory(black);
-        String whiteHandsCategory = getHandsCategory(white);
+        String blackHandsCategory = getHandsCategory(blackHands);
+        String whiteHandsCategory = getHandsCategory(whiteHands);
         String[] handsCategories = {"StraightFlush", "FourOfAKind", "FullHouse", "Flush", "Straight", "ThreeOfAKind", "TwoPair", "OnePair", "HighCard"};
-        int[] blackHandsNumbers = getHandsNumbers(black);
-        int[] whiteHandsNumbers = getHandsNumbers(white);
+        int[] blackHandsNumbers = getHandsNumbers(blackHands);
+        int[] whiteHandsNumbers = getHandsNumbers(whiteHands);
         int blackHandsCategoryRank = getHandsCategoryRank(blackHandsCategory);
         int whiteHandsCategoryRank = getHandsCategoryRank(whiteHandsCategory);
         int[] descendingBlackHandsNumbers = descendingSort(blackHandsNumbers);
