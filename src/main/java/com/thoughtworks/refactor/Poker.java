@@ -159,7 +159,7 @@ public class Poker {
     }
 
     private int[] descendingSort(int[] handsNumbers) {
-        Map<Integer, Integer> handsNumbersCountMap = new HashMap<>();
+        Map<Integer, Integer> handsNumbersCountMap = getHandsNumberCountMap(handsNumbers);
         groupByHandsNumber(handsNumbers, handsNumbersCountMap);
         List<Map.Entry<Integer, Integer>> list = new ArrayList<Map.Entry<Integer, Integer>>();
         list.addAll(handsNumbersCountMap.entrySet());
@@ -175,6 +175,10 @@ public class Poker {
             i++;
         }
         return arrayresult;
+    }
+
+    private Map<Integer, Integer> getHandsNumberCountMap(int[] handsNumbers) {
+        return new HashMap<>();
     }
 
     private void groupByHandsNumber(int[] handsNumbers, Map<Integer, Integer> map) {
